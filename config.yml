@@ -1,0 +1,8 @@
+database:
+  host: 34.171.232.52;
+  user: '@devedwin'
+  password: Edwin@2024
+  database: PROYECTO
+
+server:
+  port: 3307
