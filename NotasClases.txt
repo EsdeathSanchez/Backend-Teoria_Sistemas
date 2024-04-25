@@ -1,0 +1,302 @@
+
+
+1- git config --global user.name "Gerson Matias"
+    Identificandonos con un nommbre de usuario.
+    no existe msj de respuesta.
+
+2- git config --global user.email "programador3.glabs@gmail.com"
+    Identificandonos con un correo general.
+    no existe msj de respuesta.
+
+3- git config --global -e 
+    Se verfica la informacion ingresada.
+
+4- git init
+    Inicializa el repostorio
+
+5- git status | git s
+    Brinda informacion sobre la rama que nos encontramos
+    commits, archivos en nuestro repositorio.
+    Tambien indica que archivos han sido modificados
+
+
+6- git add <name>
+    Nos permite agregar un archivo a nuestro repositorio
+    unicamente escribiendo su nommbre
+
+7- git add .
+    Nos permite agregar todos los archivos segun el path
+    en el que nos encontremos.
+
+8- git reset <name>
+    Nos permite eliminar un archivo de nuestro repositorio.
+
+9- git commit -m "Primer commit" | git commit --message "Primer commit"
+    Tomamos la primera captura de nuestro codigo.
+
+10- git checkout -- . || git checkout -- <nombre archivo>
+    Reconstrue el proyecto conforme el último commit.
+    ejm:
+        git checkout -- README.md
+
+11- git branch
+    Indica en que rama estmos trabajando
+
+12- git branch -m master main
+    Reemplazamos el nombre de la rama master a main
+
+13- git config --global init.defaultBranch <name (main)>
+    Para configurar de manera global el nombre de la raiz
+
+14- git commit -am "arhcivo"
+    Este comando hace la funcion del comando git add . y
+    tambien el de git commit -m "". esto siempre y cuando
+    ya se le este dando seguimento al archivo
+    
+15- git log
+    tenemos acceso al historial de commits  
+
+
+16- :q
+    Para salir sin guardar
+
+17- git add *.<tipo de archivo> (git *.html)
+    Esto nos permite subir al escenario (stage) todos los archivos html
+    Esto se utiliza para usar el comando 6 y 7 (git add).
+    Es importante escribir la ruta donde se encuentran los archivos
+    ej.
+
+    git add carpeta/*.<tipo archivo>
+    git js/*.js      agrega todos los archivos js. que estan en la carpeta js
+    git add carpeta/
+    git add css/     agrega todos lo que contiene la carpeta .
+
+
+18- Carpeta uploads
+    Se crea esta carpeta para que todos los usuarios suban sus archivos al sitio web
+    Se crea un archivo .gitkeep. para que puedar darse seguimiento ya que
+    git no le da seguimientos a carpetas vacias (sin archivos)
+    Además el archivo .gitkeep le dice a git que porfavor mantenga esta carpeta
+
+19- git config --global alias.s status --short |  git config --global alias.s "status --	short"
+    Este comando es para crear alias, en este caso el alias
+    es el que esta despues del punto 'alias.s' == 's', si todo esta bien
+    entonces no retorna un mensaje
+
+20- git config --global -e
+    Nos permite modificar el alias 
+
+21- (esc):wq!
+    comando para salir pero guarda.
+
+22- git log --oneline
+    Presenta un log resumida 
+
+23- git diff
+    Muestra actuales  anteriors, practicamente los datos 
+    que han sufrido algún cambio.
+
+    git diff --staged
+    Muestra los cambios que están en el stage.
+
+24- git commit --amend -m "mensaje"
+    Comando para arreglar el mensaje del commit esto es para el 
+    último commit realizado
+
+25- git reset --soft HEAD^ (HEAD^2,3,4,5..)
+    la palabra HEAD apunta al último commit 
+    el simbolo '^' indica el último commit antes del HEAD
+    El número despues del simbolo ^ indica el numero del 
+    commit anterior al HEAD
+    este comando es para traer el commit al staged y poder realizar 
+    los cambios respectivos y hacer nuevamente el commit
+    no devuelve un msj.
+    no es destructivo.
+
+26- git reset --mixed (codigo del hash)
+    Es muy parecido al soft(25), este no es destructivo. 
+    Nos referimos al  hash como el codigo que tiene cada comit y este 
+    codigo se recupera utilizando el git lg o git log la diferencia
+    ente el git lg y git log es que el git lg es resumido.
+    En este caso podemos omitir el --mixed y solamente escribir el hash
+    ej.
+        git reset 654s6d54
+
+27- git reset --hard (hash)
+    Destructivo
+    Deja todo el repositorio como estaba en ese punto, este comando
+    viene precedido del  git reset --mixed 
+    Practicament borra todos los cambios que se hicieron despues de ese
+    commit.
+    Este comando si se desea ir al útlimo hash podemos utilizar la siguiente
+    expression 
+    El git reset --hard sin el hash es muy parecido al git checkout
+
+    git reset --hard HEAD^
+
+    Practimaente estamos eliminando archivos de nuestro repositorio.
+
+28- git reflog
+    Brinda un orden cronologico de todos los commit que se han realizado en el 
+    proyecto sin importar que se utilizó git reset --hard.
+
+29- git mv <direccion o nombre archivo>
+    mover (cambiar) el nombre del archivo y deja en el stage el archivo
+
+30- git rm <direccion o nombre de archivo>
+    para eliminar el archivo
+
+31- archivo .gitignore
+    archivo que va en la raiz y le dice a git que archivos no daremos seguimiento
+    y dentro del archivo pondremos la direccion de los archivos donde no daremos 
+    seguimiento
+
+    
+-32 git branch <nombre rama>
+    Crea una nueva rama para trabajar y se le da un nombre,
+    no retorna algo, solamente si hay algun error retorna el erro.
+    ej:
+
+    git branch rama-villanos
+
+-33 git checkout <nombre de la rama>
+    Permite movernes entre las diferentes ramas que tengamos creadas 
+    en nuestro proyecto.
+    Retorna un mensaje que nos hemos movido a la rama especificada.
+
+-34 git merge rama-villanos
+    traemos los cambios de la rama villanos a la rama principal 
+    en este caso me establezco en la rama principal y luego ejecuto el comando
+
+-35 git branch -d <nombre rama>
+    Elimina la rama según el nombre y si hay archivos que no se han unido 
+    a la rama principal, entonces git preguntará si deseamos borrarla o 
+    por ejm:
+
+    git branch -d rama-villanos   
+
+-36 git branch -d <nombre rama> -f                     
+    Forza la eliminación de la rama sin importar si existen archivos que no 
+    se han agragado a la rama principal.  
+
+-37 git checkout -b <nombre rama>
+    Creamos la rama y nos movemos a esa rama.
+
+
+
+-38 git tag <nombre>
+    Comunmente utilizado para indicar versiones del programa.
+    El nombre de la version se puede utilizar cualquier nombre 
+    o un nombre semantico con versiones.
+    No retorna un mensaje
+    ej:
+        git tag super-release
+    Tambien se puede utilizar git tag y nos mostrará todas los tag 
+    existentes
+
+-39 git tag -d <nombre del tag>
+    Elimina el tag del nombre especificado
+
+-40 git tag -a <version> -m "Mensaje"
+    ejemplo:
+        git tag -a V1.0.0 -m "Version 1.0.0 lista"
+
+    significado de version
+        primer num = version mayor
+        segundo num = funcionalidad agregada
+        tercer num  = bug arreglado
+        
+
+-41 git tag -a <version> <hash> -m "nombre" 
+    Permite poner un tag especificó a un commit
+
+-42 git stash
+    Guarda todO nuestro direcotrio de trabajo sin haber
+    hecho algún commit  y lo indexa y el estado esta en WIP
+    (WORKING IN PROGRESS), todo estos cambio s se guardan en la tipo
+    bobeda (stash)
+
+-43 git stash list
+    Da el listado de los stash realizados con su respectivo 
+    orden.
+
+-44 git stash pop
+    Obtiene de la bobeda el último stash realizado y con ello poder 
+    trabajar.
+
+-45 git stash clear
+    Borra todos los stash 
+
+-46 git stash apply stash@{indice}
+    ejemplo
+        git stash apply stash@{0}
+    Obtenemos un stash en especificó de la lista (git stash list)
+
+-47 git stash drop stash@{indice}
+    elimina un stash específico basado en su indice
+
+-48 git stas show stash@{indice}
+    podemos obserbar que paso en ese stash específico.
+
+49- git stash save "nombre"
+    Permite guardar un stash con su respectivo nombre
+
+50- git stash list --stat
+    Permite ver todolos los arhivos que fueron modificados en los stash
+
+51- git rabase master  
+    Muchas veces se hacen commits en la master aunque tengamos una rama
+    en producción y con git rabase master movemos la rama  adelante del 
+    ultimo commit. Recuerde que  para usar este comando debe de estar en 
+    la rama maste (git checkout master)
+
+52- git rebase -i HEAD~3 (rebase squash)
+    Con este comando obtenemos los últimos 3 commits realizados con la 
+    finalidad de realizarle varias configuraciones por ejm:
+        unirlos
+        removerlos
+        editar mensajes, etc.
+    Utilizar este comando unicamente si el cambio está localmente, si ya
+    se encuentra en la nube no es bueno utilizar este comando para no caer
+    en conflictos.
+    Para pode realizar una configuración entonces se debe de reemplazar la 
+    palabra pick por la palabra según la configuración que tengamos.
+
+
+
+53- git remote add origin <path>
+
+	git remote add origin 	https://desarrollo@dev.azure.com/desarrollo07/GUIAS_IMPRIMIR_git/GUIAS_IMPRIMIR
+	git push -u origin --all
+
+
+54- git push --tags
+    Revisa los tags y los comprueba con el origen remoto y subira los tags
+    que no se encuentren.
+    
+
+55- git remote -v
+    Se visualiza el path para realizar subir y obtener archivso del remoto
+
+56- git pull
+    Bajar archivos del remoto (obtener) de la rama principal.
+
+57- 
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
